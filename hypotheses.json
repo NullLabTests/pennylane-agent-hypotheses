@@ -1,0 +1,93 @@
+[
+  {
+    "id": "H1",
+    "rank": 1,
+    "title": "Joint Classical–Quantum NAS Discovers Pareto-Optimal HQNN Architectures",
+    "description": "Hybrid quantum neural networks (HQNNs) exhibit a weak or nonexistent expressibility–trainability trade-off under full end-to-end training, unlike standalone PQCs (arXiv:2605.25768, 2025). This hypothesis asserts that a multi-objective neural architecture search (NAS) over a joint classical–quantum design space — varying qubit count, circuit depth, entanglement topology, encoding strategy, and classical head width — can discover Pareto-optimal HQNN architectures that simultaneously maximize task accuracy and minimize computational cost (FLOPs). The search should leverage the observation that classical components reshape the optimisation landscape, decoupling trainability from PQC expressibility. We propose to benchmark discovered architectures against the baseline variational classifier and dressed quantum circuit from the PennyLane demo suite using MNIST-4class and Fashion-MNIST subsets.",
+    "novelty_rationale": "Prior quantum NAS (DQAS, EQNAS, FAQNAS) searches only quantum submodules. This hypothesis uniquely combines (a) the recent theoretical result that hybridisation eliminates the expressibility–trainability trade-off with (b) a FLOPs-aware multi-objective search over the full classical–quantum pipeline, using Pareto optimality rather than accuracy-only ranking.",
+    "expected_metric": "Pareto hypervolume improvement over manually designed baselines; accuracy at iso-FLOPs; number of dominated architectures",
+    "estimate_cost": "medium — ~2,000 CPU·hr for search over 500 architectures × 5 epochs on 10-qubit circuits with PennyLane lightning.qubit",
+    "baseline_notebook_path": "demonstrations_v2/tutorial_variational_classifier/demo.py",
+    "min_experiment_steps": 5,
+    "refs": [
+      "https://arxiv.org/abs/2605.25768 — Rethinking Expressibility-Trainability Trade-off in Hybrid Quantum Neural Networks (2025)",
+      "https://arxiv.org/abs/2511.10062 — FAQNAS: FLOPs-aware Hybrid Quantum Neural Architecture Search using Genetic Algorithm (2025)",
+      "https://arxiv.org/abs/2402.10540 — A Comparative Analysis of Hybrid-Quantum Classical Neural Networks (2024)",
+      "https://arxiv.org/abs/2405.05892 — An RNN-policy gradient approach for quantum circuit architecture search (2024)",
+      "https://pennylane.ai/qml/demos/tutorial_variational_classifier — PennyLane Variational Classifier baseline",
+      "https://pennylane.ai/qml/demos/tutorial_qnn_module_torch — PennyLane Torch QNN Module baseline"
+    ]
+  },
+  {
+    "id": "H2",
+    "rank": 2,
+    "title": "Engineered Dissipation Outperforms Local Cost Functions for Barren Plateau Mitigation",
+    "description": "Engineered Markovian dissipation added after each unitary layer of a variational quantum circuit can provably mitigate barren plateaus with time complexity scaling logarithmically in qubit count (npj Quantum Information 10, 88, 2024). This hypothesis proposes a head-to-head comparison of three barren-plateau mitigation strategies — global cost functions, local cost functions (Cerezo et al., 2021), and engineered dissipation layers — across varying circuit depths (L=2..10) and qubit counts (n=4..16) on two tasks: VQE ground-state estimation for H2/ LiH and synthetic random Hamiltonian minimisation. The dissipation strategy is expected to maintain higher gradient variance at large n and L compared to both global and local cost baselines, and to reduce the fraction of untrainable random initializations below 10% (vs. 70–80% for global costs).",
+    "novelty_rationale": "Existing BP mitigation studies treat local cost functions and dissipation separately. This hypothesis provides the first systematic, multi-metric comparison (gradient variance, convergence rate, fraction of barren initializations) across all three strategies using a shared circuit family and PennyLane's built-in noise and dissipation toolchain.",
+    "expected_metric": "Gradient variance vs. qubit count (exponent of exponential decay); fraction of barren initializations; wall-clock convergence to threshold energy",
+    "estimate_cost": "medium — ~1,500 CPU·hr for 50 random seeds × 10 depths × 5 qubit counts × 2 tasks × 3 strategies",
+    "baseline_notebook_path": "demonstrations_v2/tutorial_barren_plateaus/demo.py",
+    "min_experiment_steps": 4,
+    "refs": [
+      "https://www.nature.com/articles/s41534-024-00875-0 — Engineered dissipation to mitigate barren plateaus, npj Quantum Information 10, 88 (2024)",
+      "https://arxiv.org/abs/2101.11684 — Cost-Function-Dependent Barren Plateaus in Shallow Quantum Neural Networks (Cerezo et al., 2021)",
+      "https://arxiv.org/abs/2411.08238 — Neural-network Generated Quantum State Can Mitigate the Barren Plateau (2025)",
+      "https://pennylane.ai/qml/demos/tutorial_barren_plateaus — PennyLane Barren Plateaus demo",
+      "https://pennylane.ai/qml/demos/tutorial_local_cost_functions — PennyLane Local Cost Functions demo"
+    ]
+  },
+  {
+    "id": "H3",
+    "rank": 3,
+    "title": "Post-Variational Strategies Outperform Variational Training on Non-Convex QML Landscapes",
+    "description": "Post-variational quantum neural networks (arXiv:2312.01486) shift trainable parameters from quantum circuits to a classical post-processor, fixing the quantum component and optimising only classical weights. This approach sacrifices circuit expressibility for guaranteed trainability. This hypothesis tests whether post-variational methods (observable construction, ansatz expansion, and their hybrid) consistently achieve higher test accuracy than fully variational training on datasets with known non-convex optimization landscapes — specifically the linearly-separable, moons, and MNIST-2v6 benchmarks from the 'Better than classical?' study (arXiv:2403.07059). We expect the hybrid heuristic (first-order ansatz expansion + 2-local observables) to close the gap to classical MLP classifiers while remaining classically simulable.",
+    "novelty_rationale": "The 'Better than classical?' benchmark (2024) found that out-of-the-box classical models outperform most quantum classifiers, but post-variational methods were not included. This hypothesis fills that gap by testing whether post-variational ensembles — which are classically simulable at scale — can match or approach classical performance on the same suite of 6 benchmark tasks.",
+    "expected_metric": "Test accuracy vs. classical MLP baseline; accuracy gap to best classical model; training stability (variance across seeds)",
+    "estimate_cost": "low-medium — ~500 CPU·hr for 6 datasets × 4 strategies × 10 seeds on ≤10 qubits",
+    "baseline_notebook_path": "demonstrations_v2/tutorial_post-variational_quantum_neural_networks/demo.py",
+    "min_experiment_steps": 4,
+    "refs": [
+      "https://arxiv.org/abs/2312.01486 — Post-variational quantum neural networks (2023)",
+      "https://pennylane.ai/qml/demos/tutorial_post-variational_quantum_neural_networks — PennyLane Post-Variational QNN demo",
+      "https://arxiv.org/abs/2403.07059 — Better than classical? The subtle art of benchmarking quantum machine learning models (2024)",
+      "https://pennylane.ai/blog/2024/03/benchmarking-near-term-quantum-algorithms-is-an-art — Blog: Benchmarking near-term quantum algorithms (2024)",
+      "https://github.com/XanaduAI/qml-benchmarks — QML Benchmark code repository"
+    ]
+  },
+  {
+    "id": "H4",
+    "rank": 4,
+    "title": "PDE-Constrained Loss Functions Suppress Exponential Gradient Vanishing in VQCs",
+    "description": "Recent work (Ukwatta Hewage et al., arXiv, 2026) demonstrates that embedding partial differential equation (PDE) constraints into VQC loss functions yields gradient variance that decays as O(n^-0.7) rather than O(2^-0.39n) for global cost functions. This hypothesis proposes to reproduce and extend those findings by testing PDE-constrained losses (heat, Burgers', and Saint-Venant equations) across a wider range of circuit architectures (tree tensor network, MERA, hardware-efficient ansatz) and optimisation tasks (ground-state finding, binary classification, and function fitting). The key prediction is that PDE-constrained losses stabilise gradient variance near ~10^-2 across n=4..16 qubits, regardless of ansatz structure.",
+    "novelty_rationale": "The PDE-constrained loss approach is very recent (2026) and has only been demonstrated on a single ansatz family (all-to-all entanglement). This hypothesis extends it across three structurally distinct ansatze and three task types, directly testing the claim that 'PDE + structured entanglement yields the flattest gradient profile' holds universally.",
+    "expected_metric": "Gradient variance decay exponent; convergence speed (epochs to threshold); final loss value vs. global/local cost baselines",
+    "estimate_cost": "medium — ~2,500 CPU·hr for 3 ansatz types × 4 qubit counts × 3 depths × 3 PDE types × 20 seeds",
+    "baseline_notebook_path": "demonstrations_v2/tutorial_barren_plateaus/demo.py",
+    "min_experiment_steps": 4,
+    "refs": [
+      "https://github.com/nimanpra/Barren-Plateau-PDE-Mitigation — PDE-constrained loss for barren plateau mitigation (2026)",
+      "https://arxiv.org/abs/2311.04965 — Expressibility-induced Concentration of Quantum Neural Tangent Kernels (2023)",
+      "https://www.nature.com/articles/s41534-025-01036-7 — Trade-off between gradient measurement efficiency and expressivity in deep QNNs (2025)",
+      "https://pennylane.ai/qml/demos/tutorial_barren_plateaus — PennyLane Barren Plateaus demo",
+      "https://pennylane.ai/qml/demos/tutorial_expressivity_fourier_series — PennyLane Expressivity Fourier Series demo"
+    ]
+  },
+  {
+    "id": "H5",
+    "rank": 5,
+    "title": "Data-Reuploading with Trainable Scaling Outperforms Fixed Encoding on Small-Benchmark Suites",
+    "description": "The Xanadu QML benchmark study (arXiv:2403.07059) found that models with trainable encoding — specifically the data-reuploading classifier — showed 'some promising behaviour' compared to other quantum models, though still below classical baselines. This hypothesis proposes a systematic investigation of whether L-layer data re-uploading with per-layer trainable scaling parameters can close the accuracy gap to classical MLP classifiers on the same 6 benchmark tasks (160 datasets). We hypothesise that trainable input scaling (as opposed to fixed pre-processing) enables the quantum model to learn problem-specific frequency spectra in the Fourier representation of the model, which is known to directly control expressivity (arXiv:2104.00021, Schuld et al., 2021). The experiment varies L (1..8), encoding strategy (angle vs. amplitude), and optimiser (Adam vs. QNG) to find the configuration that minimises the accuracy gap.",
+    "novelty_rationale": "The 'Better than classical?' benchmark did not optimise encoding hyperparameters per dataset. This hypothesis introduces a per-dataset grid over encoding depth and trainable scaling, directly leveraging the Fourier-series perspective to explain why some configurations outperform others. It also tests whether combining data re-uploading with quantum natural gradient (QNG) further improves convergence.",
+    "expected_metric": "Accuracy gap (percentage points) to classical MLP classifier; rank among quantum models; Fourier frequency footprint vs. task complexity",
+    "estimate_cost": "low-medium — ~600 CPU·hr for 6 benchmarks × 8 depths × 2 encodings × 2 optimisers × 5 seeds",
+    "baseline_notebook_path": "demonstrations_v2/tutorial_data_reuploading_classifier/demo.py",
+    "min_experiment_steps": 3,
+    "refs": [
+      "https://arxiv.org/abs/2403.07059 — Better than classical? The subtle art of benchmarking quantum machine learning models (2024)",
+      "https://arxiv.org/abs/2104.00021 — Effect of data encoding on the expressive power of variational quantum classifiers (Schuld et al., 2021)",
+      "https://pennylane.ai/qml/demos/tutorial_data_reuploading_classifier — PennyLane Data-Reuploading Classifier demo",
+      "https://pennylane.ai/blog/2022/03/why-measuring-performance-is-our-biggest-blind-spot-in-quantum-machine-learning — Blog: Measuring performance in QML (2022)",
+      "https://pennylane.ai/qml/demos/tutorial_kernel_based_training — PennyLane Kernel-based Training demo"
+    ]
+  }
+]
