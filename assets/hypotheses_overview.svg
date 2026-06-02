@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="h1g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/><stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="h2g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6"/><stop offset="100%" style="stop-color:#2563EB"/>
+    </linearGradient>
+    <linearGradient id="h3g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EF4444"/><stop offset="100%" style="stop-color:#DC2626"/>
+    </linearGradient>
+    <linearGradient id="h4g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B"/><stop offset="100%" style="stop-color:#D97706"/>
+    </linearGradient>
+    <linearGradient id="h5g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981"/><stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="20" font-weight="bold">🧪 Hypothesis Overview &amp; Relationships</text>
+  <line x1="100" y1="50" x2="700" y2="50" stroke="#334155" stroke-width="1"/>
+
+  <!-- Central hub: H1 -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="70" width="200" height="50" rx="25" fill="url(#h1g)"/>
+    <text x="400" y="100" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="bold">H1: Pareto-Optimal HQNNs</text>
+  </g>
+  <text x="400" y="140" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="10">Architecture Search · Multi-objective NAS</text>
+
+  <!-- H2 -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="180" width="200" height="50" rx="25" fill="url(#h2g)"/>
+    <text x="140" y="210" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="bold">H2: Engineered Dissipation</text>
+  </g>
+  <text x="140" y="245" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="10">BP Mitigation · Local Cost Comparison</text>
+
+  <!-- H3 -->
+  <g filter="url(#shadow)">
+    <rect x="290" y="180" width="220" height="50" rx="25" fill="url(#h3g)"/>
+    <text x="400" y="210" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="bold">H3: Post-Variational Strategies</text>
+  </g>
+  <text x="400" y="245" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="10">Non-Convex Landscapes · Observable Construction</text>
+
+  <!-- H4 -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="300" width="200" height="50" rx="25" fill="url(#h4g)"/>
+    <text x="140" y="330" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="bold">H4: PDE-Constrained Loss</text>
+  </g>
+  <text x="140" y="365" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="10">Gradient Vanishing · Physics-Informed</text>
+
+  <!-- H5 -->
+  <g filter="url(#shadow)">
+    <rect x="290" y="300" width="220" height="50" rx="25" fill="url(#h5g)"/>
+    <text x="400" y="330" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="bold">H5: Data-Reuploading Scaling</text>
+  </g>
+  <text x="400" y="365" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="10">Trainable Encoding · Fourier Expressivity</text>
+
+  <!-- Right side: shared goal -->
+  <g filter="url(#shadow)">
+    <rect x="580" y="175" width="190" height="110" rx="16" fill="#1e293b" stroke="#10B981" stroke-width="2"/>
+    <text x="675" y="200" text-anchor="middle" fill="#10B981" font-family="Arial,sans-serif" font-size="12" font-weight="bold">🎯 Shared Goal</text>
+    <text x="675" y="225" text-anchor="middle" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="10">Demonstrate measurable</text>
+    <text x="675" y="242" text-anchor="middle" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="10">quantum advantage on</text>
+    <text x="675" y="259" text-anchor="middle" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="10">small-scale benchmarks</text>
+  </g>
+
+  <!-- Arrows from H1 to children -->
+  <line x1="350" y1="120" x2="190" y2="180" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="450" y1="120" x2="450" y2="180" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="400" y1="120" x2="400" y2="180" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Arrows from H2, H3 to H4, H5 -->
+  <line x1="190" y1="230" x2="190" y2="300" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="450" y1="230" x2="450" y2="300" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Bottom legend -->
+  <rect x="80" y="410" width="12" height="12" rx="3" fill="#8B5CF6"/>
+  <text x="98" y="420" fill="#94a3b8" font-family="Arial,sans-serif" font-size="9">Architecture Search</text>
+  <rect x="230" y="410" width="12" height="12" rx="3" fill="#3B82F6"/>
+  <text x="248" y="420" fill="#94a3b8" font-family="Arial,sans-serif" font-size="9">Trainability</text>
+  <rect x="350" y="410" width="12" height="12" rx="3" fill="#EF4444"/>
+  <text x="368" y="420" fill="#94a3b8" font-family="Arial,sans-serif" font-size="9">Expressivity</text>
+  <rect x="460" y="410" width="12" height="12" rx="3" fill="#F59E0B"/>
+  <text x="478" y="420" fill="#94a3b8" font-family="Arial,sans-serif" font-size="9">Cost Varies</text>
+  <rect x="580" y="410" width="12" height="12" rx="3" fill="#10B981"/>
+  <text x="598" y="420" fill="#94a3b8" font-family="Arial,sans-serif" font-size="9">Low-Medium</text>
+
+  <text x="400" y="460" text-anchor="middle" fill="#475569" font-family="Arial,sans-serif" font-size="9">Hypotheses flow from architecture search (H1) → trainability (H2, H4) → expressivity (H3, H5)</text>
+  <text x="400" y="478" text-anchor="middle" fill="#475569" font-family="Arial,sans-serif" font-size="9">All hypotheses share six evaluation metrics for cross-hypothesis comparability</text>
+</svg>

@@ -34,6 +34,13 @@
 
 <br/>
 
+<p align="center">
+  <img src="assets/hypotheses_overview.svg" alt="Hypothesis Overview Diagram" width="90%">
+</p>
+<p align="center"><sub>Hypothesis relationships: H1 (Architecture Search) branches into trainability (H2, H4) and expressivity (H3, H5) tracks, all feeding into shared evaluation metrics.</sub></p>
+
+<br/>
+
 ---
 
 ## 🔗 Ecosystem Architecture
@@ -162,6 +169,19 @@ flowchart LR
 | **Metric** | Accuracy gap (percentage points) to classical MLP classifier |
 | **Baseline** | [`tutorial_data_reuploading_classifier`](https://pennylane.ai/qml/demos/tutorial_data_reuploading_classifier) |
 | **Refs** | [arXiv:2403.07059](https://arxiv.org/abs/2403.07059), [Schuld et al. (2021)](https://arxiv.org/abs/2104.00021) |
+
+<br/>
+
+---
+
+## 🔄 Research Pipeline
+
+<br/>
+
+<p align="center">
+  <img src="assets/methodology.svg" alt="Research Methodology Pipeline" width="90%">
+</p>
+<p align="center"><sub>End-to-end pipeline: Hypothesis Definition → Python Implementation → Notebook Execution → Results Validation. The three repositories form a complete research-to-execution lifecycle.</sub></p>
 
 <br/>
 
